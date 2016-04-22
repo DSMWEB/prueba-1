@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CHILDS</title>
+
+    <style>
+    html {
+      font-size: 62.5%;
+    }
+
+    html * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #ddd;
+      font-family: sans-serif;
+    }
+
+    .cards-container {
+      height: 140px;
+      margin: 50px auto 0;
+      overflow: hidden;
+      position:relative;
+      width: 80%;
+    }
+
+    /*.card {
+      box-sizing: border-box;
+      float: left;
+      height: 50px;
+      margin: 10px 0;
+      padding: 0 10px;
+      position: relative;
+      width: 20%;
+    }*/
+
+    .card {
+      box-sizing: border-box;
+      height: 70px;
+      padding: 10px;
+      position: absolute;
+      width: 20%;
+    }
+
+    .card:nth-child(1) {
+      left: 0;
+      top: 0;
+    }
+
+    .card:nth-child(2) {
+      left: 40%;
+      top: 0;
+    }
+
+    .card:nth-child(3) {
+      left: 60%;
+      top: 0;
+    }
+
+    .card:nth-child(4) {
+      left: 80%;
+      top: 0;
+    }
+
+    .card:nth-child(5) {
+      left: 40%;
+      top: 80px;
+    }
+
+    .card:nth-child(6) {
+      left: 60%;
+      top: 80px;
+    }
+
+    .card:nth-child(7) {
+      left: 80%;
+      top: 80px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      background-color: #000;
+      color: #fff;
+      cursor: pointer;
+      height: 100%;
+      line-height: 50px;
+      position: relative;
+      text-align: center;
+    }
+
+    h1:hover {
+      background-color: #202020;
+    }
+
+    .open {
+      height: 150px;
+      width: 40%;
+      transition: width ease-in 0.2s, height ease-in 0.15s;
+    }
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="cards-container">
+      <article class="card open"><h1>0</h1></article>
+      <article class="card"><h1>1</h1></article>
+      <article class="card"><h1>2</h1></article>
+      <article class="card"><h1>3</h1></article>
+      <article class="card"><h1>4</h1></article>
+      <article class="card"><h1>5</h1></article>
+      <article class="card"><h1>6</h1></article>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script>
+    $(function(){
+
+      $('.card').on('click', function(){
+
+        var position;
+
+        position = $(this).index();
+
+        if ($(this).hasClass('open')) {
+          return;
+        }
+
+        $('.card').removeClass('open');
+        $(this).addClass('open');
+
+        console.log(position);
+
+        switch (position) {
+
+          case 0:
+
+            $('.card:eq(0)').css({
+              top: 0,
+              left: 0
+            });
+
+            $('.card:eq(1)').css({
+              top: 0,
+              left: '40%'
+            });
+
+            $('.card:eq(4)').css({
+              top: '80px',
+              left: '40%'
+            });
+
+            break;
+
+          case 1:
+
+            $('.card:eq(0)').css({
+              top: 0,
+              left: 0
+            });
+
+            $('.card:eq(1)').css({
+              top: 0,
+              left: '20%'
+            });
+
+            $('.card:eq(4)').css({
+              top: '80px',
+              left: 0
+            });
+
+            break;
+
+          case 4:
+
+            $('.card:eq(0)').css({
+              top: 0,
+              left: 0
+            });
+
+            $('.card:eq(1)').css({
+              top: '80px',
+              left: 0
+            });
+
+            $('.card:eq(4)').css({
+              top: 0,
+              left: '20%'
+            });
+
+            break;
+
+          default:
+
+        }
+
+      });
+
+    });
+    </script>
+
+  </body>
+</html>
